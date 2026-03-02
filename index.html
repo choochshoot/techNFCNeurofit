@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NetworkLink – NFC + Ecosistema Digital Corporativo</title>
+
+<meta name="description" content="Tarjetas NFC personalizadas con módulo enterprise de analítica, perfil digital inteligente y ecosistema web corporativo.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= VARIABLES ================= */
+:root{
+--primary:#1a5fb4;
+--dark:#1e293b;
+--gray:#64748b;
+--light:#f1f5f9;
+--radius:16px;
+--shadow:0 12px 28px rgba(0,0,0,0.08);
+--success:#22c55e;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,#f1f5f9 0%,#e2e8f0 100%);
+color:var(--dark);
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:2rem;
+}
+
+.section{
+margin-bottom:5rem;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+text-align:center;
+margin-bottom:4rem;
+}
+
+.hero h1{
+font-family:'Poppins';
+font-size:2.8rem;
+color:var(--primary);
+}
+
+.hero p{
+margin-top:1rem;
+color:var(--gray);
+max-width:800px;
+margin-inline:auto;
+}
+
+/* ================= CARD BASE ================= */
+
+.card{
+background:white;
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+overflow:hidden;
+margin-bottom:2rem;
+}
+
+.card-content{
+padding:2rem;
+}
+
+.card h2{
+font-family:'Poppins';
+color:var(--primary);
+margin-bottom:1rem;
+}
+
+.features{
+list-style:none;
+margin-top:1rem;
+}
+
+.features li{
+margin-bottom:.6rem;
+padding-left:1.5rem;
+position:relative;
+}
+
+.features li::before{
+content:"✓";
+position:absolute;
+left:0;
+color:var(--success);
+font-weight:bold;
+}
+
+.image{
+width:100%;
+height:320px;
+object-fit:cover;
+}
+
+/* ================= PANEL ENTERPRISE ================= */
+
+.enterprise-section{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+padding:3rem 2rem;
+border-radius:var(--radius);
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.enterprise-section h2{
+text-align:center;
+font-family:'Poppins';
+margin-bottom:1rem;
+}
+
+.enterprise-subtitle{
+text-align:center;
+color:#94a3b8;
+margin-bottom:3rem;
+}
+
+.analytics-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:1.5rem;
+}
+
+.metric-card{
+background:rgba(255,255,255,0.05);
+padding:1.5rem;
+border-radius:14px;
+text-align:center;
+backdrop-filter:blur(8px);
+transition:.3s ease;
+}
+
+.metric-card:hover{
+transform:translateY(-6px);
+background:rgba(255,255,255,0.1);
+}
+
+.metric-card h4{
+font-size:.85rem;
+color:#94a3b8;
+margin-bottom:.5rem;
+}
+
+.metric-card p{
+font-size:1.5rem;
+font-weight:600;
+}
+
+/* ================= PREVIEW ================= */
+
+.preview-frame{
+width:100%;
+height:500px;
+border:none;
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+}
+
+/* ================= INFOGRAFÍA FINTECH ================= */
+
+.fintech-infografia{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+padding:3rem 2rem;
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.fintech-infografia h2{
+text-align:center;
+font-family:'Poppins';
+margin-bottom:1rem;
+}
+
+.fintech-intro{
+text-align:center;
+color:#cbd5e1;
+margin-bottom:3rem;
+max-width:800px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.fintech-stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:1.5rem;
+margin-bottom:2.5rem;
+}
+
+.fintech-stat{
+background:rgba(255,255,255,0.06);
+padding:1.5rem;
+border-radius:14px;
+text-align:center;
+transition:.3s ease;
+}
+
+.fintech-stat:hover{
+transform:translateY(-5px);
+background:rgba(255,255,255,0.1);
+}
+
+.stat-number{
+display:block;
+font-size:2.2rem;
+font-weight:700;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:.5rem;
+}
+
+.fintech-btn{
+display:block;
+margin:0 auto;
+padding:.9rem 2rem;
+border-radius:40px;
+background:linear-gradient(90deg,#0072ff,#00c6ff);
+color:white;
+font-weight:600;
+border:none;
+cursor:pointer;
+box-shadow:0 15px 40px rgba(0,114,255,.4);
+transition:.3s ease;
+}
+
+.fintech-btn:hover{
+transform:translateY(-4px);
+box-shadow:0 20px 50px rgba(0,114,255,.6);
+}
+
+.fintech-expandido{
+display:none;
+margin-top:2rem;
+color:#d1d5db;
+line-height:1.7;
+}
+
+.fintech-source{
+margin-top:2rem;
+font-size:.85rem;
+color:#94a3b8;
+}
+
+/* ================= CTA PREMIUM ================= */
+
+.cta-premium{
+display:inline-block;
+position:relative;
+padding:1rem 2.5rem;
+font-weight:600;
+font-size:1rem;
+border-radius:50px;
+text-decoration:none;
+color:white;
+background:linear-gradient(135deg,#0072ff,#00c6ff);
+overflow:hidden;
+transition:.4s ease;
+box-shadow:0 15px 35px rgba(0,114,255,.4);
+}
+
+.cta-premium::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);
+transition:.6s ease;
+}
+
+.cta-premium:hover::before{
+left:100%;
+}
+
+.cta-premium:hover{
+transform:translateY(-4px);
+box-shadow:0 20px 45px rgba(0,114,255,.6);
+}
+
+footer{
+text-align:center;
+margin-top:4rem;
+padding-top:2rem;
+font-size:.9rem;
+color:var(--gray);
+}
+
+@media(max-width:768px){
+.preview-frame{height:400px;}
+.hero h1{font-size:2rem;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+<h1>NetworkLink</h1>
+<p>
+Tarjeta NFC inteligente + Panel de Analítica Enterprise + Perfil Digital.
+Un ecosistema diseñado para corporativos y equipos comerciales.
+</p>
+</div>
+
+<!-- PRODUCTO ESTELAR -->
+<section class="section">
+<div class="card">
+<img src="https://i.imgur.com/8m9few8.png" class="image">
+<div class="card-content">
+<h2>Producto Estelar: Tarjeta NFC Personalizada</h2>
+<ul class="features">
+<li>Acceso inmediato al perfil NetworkLink</li>
+<li>Ideal para expos y equipos de ventas</li>
+<li>Imagen tecnológica premium</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- PANEL ENTERPRISE -->
+<section class="section">
+<div class="enterprise-section">
+<h2>Módulo Enterprise de Analítica NFC</h2>
+<p class="enterprise-subtitle">
+Medición avanzada para ventas, expos y equipos corporativos.
+</p>
+
+<div class="analytics-grid">
+<div class="metric-card"><h4>Escaneos Totales</h4><p>356</p></div>
+<div class="metric-card"><h4>Clics WhatsApp</h4><p>128</p></div>
+<div class="metric-card"><h4>Descargas vCard</h4><p>74%</p></div>
+<div class="metric-card"><h4>Ubicación</h4><p>CDMX</p></div>
+<div class="metric-card"><h4>Timestamp</h4><p>14:32 hrs</p></div>
+<div class="metric-card"><h4>Dispositivo</h4><p>iOS / Android</p></div>
+</div>
+</div>
+</section>
+
+<!-- PREVIEW -->
+<section class="section">
+<h2 style="font-family:Poppins;margin-bottom:1rem;color:#1a5fb4;">
+Vista previa de NetworkLink
+</h2>
+<iframe class="preview-frame"
+src="https://choochshoot.github.io/linktree-pages/manuel-pulido/">
+</iframe>
+</section>
+
+<!-- INFOGRAFÍA -->
+<section class="section">
+<div class="fintech-infografia">
+
+<h2>Billeteras Digitales en México 2025</h2>
+<p class="fintech-intro">
+El 50% de los usuarios móviles ya utilizan billeteras digitales.
+</p>
+
+<div class="fintech-stats-grid">
+<div class="fintech-stat"><span class="stat-number">50%</span><p>Usuarios móviles en México</p></div>
+<div class="fintech-stat"><span class="stat-number">95,000 MDD</span><p>Mercado LATAM 2025</p></div>
+<div class="fintech-stat"><span class="stat-number">13.9%</span><p>Crecimiento anual</p></div>
+</div>
+
+<button class="fintech-btn" onclick="toggleFintech()">Ver análisis completo</button>
+
+<div id="fintech-expandido" class="fintech-expandido">
+<p>Las billeteras digitales impulsan la inclusión financiera y representan la tendencia de mayor crecimiento en LATAM.</p>
+<p>Retos: educación digital, infraestructura, confianza del usuario e interoperabilidad bancaria.</p>
+<p class="fintech-source">Fuente: Kushki / PCMI / Mordor Intelligence.</p>
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+<div class="card">
+<div class="card-content">
+<h2>Completa tu Ecosistema Digital</h2>
+<a href="https://wa.me/5215618371510" class="cta-premium">
+Solicitar Implementación
+</a>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Todos los Derechos Reservados Neurofit / technology interfaces  
+<br>
+Soluciones digitales para profesionales y empresas.
+</footer>
+
+</div>
+
+<script>
+function toggleFintech(){
+const section = document.getElementById("fintech-expandido");
+section.style.display = section.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
